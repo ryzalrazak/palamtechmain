@@ -1,0 +1,297 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>PC Package</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="{{ url_for('static' , filename='bootstrap/css/bootstrap.min.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static' , filename='css/main.css') }}" />
+        <link rel="stylesheet" href="{{ url_for('static' , filename='css/radio.css') }}" />
+
+		<noscript><link rel="stylesheet" href=""{{ url_for('static' , filename='css/noscript.css') }}"" /></noscript>
+	</head>
+	<body class="is-preload">
+
+		<!-- Wrapper -->
+			<div id="wrapper">
+
+				<!-- Header -->
+				<header id="header" class="alt">
+					<a href="allcust" class="logo"><strong>Palam Tech</strong> <span>Admin</span></a>
+					<nav>
+						<a href="#menu">Menu</a>
+					</nav>
+				</header>
+
+				<!-- Menu -->
+				<nav id="menu">
+					<ul class="links">
+						<li > <a href="logout">Logout</a> </li> 
+                        <li  class="active"> <a href="allcust">All Customer</a> </li> 
+		                
+						<li class="dropdown">
+		                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Component</a>
+		                    
+		                    <ul class="dropdown-menu">
+                                <li> <a href="addcasing">Manage Component</a> </li>
+								<li> <a href="addpackage">Add new package</a> </li>
+				                
+		                    </ul>
+                        
+		                </li>
+                        <li class="dropdown">
+		                    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Feedback</a>
+		                    
+		                    <ul class="dropdown-menu">
+                                <li> <a href="feedbacks">All Feedbacks</a> </li>
+		                        <li> <a href="complaints">Complaint Feedbacks</a> </li>
+				                <li><a href="suggestions">Suggestion Feedbacks</a></li>
+                                <li><a href="reviews">Review Feedbacks</a></li>
+		                    </ul>
+                        
+		                </li>
+
+
+            		</ul>
+				</nav>
+
+				<!-- Main -->
+					<div id="main" class="alt">
+
+						<section id="contact">
+                            <div  style="padding-left: 100px; padding-right: 100px;">
+                               
+                                    <header class="major">
+                                        <h2>Add New PC Package</h2>
+                                    </header>
+    
+                                    <form method="post" action="addpackage">
+                                        <div >
+                                            <div class="field half">
+                                                <label for="casing">Casing</label>
+                                                
+                                                <select name="casing" id="pc">
+                                                {% for row in casing %}
+                                                    <option value="{{row.id}}">{{row.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                
+                                            <br>
+                                            
+                                                <label for="mobo">Motherboard</label>
+                                               
+                                                <select name="mb" id="pc">
+                                                {% for row in mobo %}
+                                                    <option value="{{row.id}}">{{row.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                
+                                            <br>
+                                            
+                                               <label for="gpu">Graphic Processing Unit (GPU)</label>
+                                               
+                                                <select name="gpu" id="pc">
+                                                {% for row in gpu %}
+                                                    <option value="{{row.id}}">{{row.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                               
+                                            <br>
+                                                <label for="ram">Random Access Memory (RAM)</label>
+                                                
+                                                <select name="ram" id="pc">
+                                                {% for row in ram %}
+                                                    <option value="{{row.id}}">{{row.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                
+                                            <br>
+                                                <label for="storage">Storage</label>
+                                                
+                                                <select name="ssd" id="pc">
+                                                {% for row in storage %}
+                                                    <option value="{{row.id}}">{{row.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                
+                                            <br>
+                                                <label for="psu">Power Supply Unit (PSU)</label>
+                                               
+                                                <select name="psu" id="pc">
+                                                {% for row in psu %}
+                                                    <option value="{{row.id}}">{{row.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                
+                                            <br>
+                                                <label for="cpu">Central Processing Unit (CPU)</label>
+                                               
+                                                <select name="cpu" id="pc">
+                                                {% for row in cpu %}
+                                                    <option value="{{row.id}}">{{row.name}}</option>
+                                                    {% endfor %}
+                                                </select>
+                                                
+                                            <br>
+                                            <label for="reason">PC types</label>
+                                            <select name="reason" id="pc">
+                                                <option value="Gaming">Gaming</option>
+                                                <option value="Streaming">Streaming</option>
+                                                <option value="Editing">Editing</option>
+                                                
+                                                <option value="Gaming,Streaming">Gaming and Streaming</option>
+                                                <option value="Gaming,Editing">Gaming and Editing</option>
+                                                <option value="Streaming,Editing">Streaming and Editing</option>
+                                                <option value="Gaming,Streaming,Editing">Gaming, Streaming and Editing</option>
+                                                <option value="Office Use">Office use only</option>
+                                            </select>
+                                            
+                                            <br>
+                                            <label for="color">Color of PC</label>
+                                            <select id="pc" name="color">
+                                                <option value="Black">Black</option>
+                                                <option value="White">White</option>
+                                            </select>
+                                            <br>
+
+                                            <label for="performance">PC's performance?</label>
+                                            <select id="pc" name="performance">
+                                                <option value="Large memory">Large memory</option>
+                                                <option value="Fast render">Fast render</option>
+                                                <option value="Smooth gaming">Smooth gaming</option>
+                                                
+                                                <option value="Large memory,Fast render">Large memory and fast render</option>
+                                                <option value="Large memory,Smooth gaming">Large memory amd smooth gaming</option>
+                                                <option value="Fast render,Smooth gaming">Fast render and smooth gaming</option>
+                                                <option value="Large memory,Fast render,Smooth gaming">Large memory, fast render and smooth gaming</option>
+                                                <option value="Office">Office use only</option>
+                                            </select>
+									        
+                                            <div >
+
+
+                                            
+                                                <br>
+                                                <ul class="actions">
+                                                    <br>
+                                                    <li><button type="submit" class="btn btn-success" >Add Package</button></li>
+                                                </ul>
+                                            </div>
+                                            <!-- <script>
+                                                $(document).ready(function(){
+                                                    $('#submit').click(function(){
+                                                    var insert = [];
+                                                    $('.reason').each(function() {
+                                                        if($(this).is(":checked"))  {
+                                                            insert.push($(this).val());
+                                                        }
+                                                    });
+                                                    insert = insert.toString();
+                                                    var insert_string = 'checkboxvalue'+insert;
+                                                    $.ajax({
+                                                        method: "POST",
+                                                        url:"/addpackage",
+                                                        data: insert_string,
+                                                        cache: false,
+                                                        success: function(data){
+                                                            $("#result").html(data);
+                                                        }
+
+                                                    });
+                                                });
+                                            });
+                                            </script> -->
+                                        </div>
+                                    </form>
+                                </section>
+                                  <section>
+                                    <div class="inner">
+                                      
+                                            <header class="major">
+                                                <h2>List of all Packages</h2>
+                                            </header>
+                                            
+        
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                <th scope="col">ID</th>
+                                                <th scope="col">Casing</th>
+                                                <th scope="col">Motherboard</th>
+                                                <th scope="col">GPU</th>
+                                                <th scope="col">RAM</th>
+                                                <th scope="col">Storage</th>
+                                                <th scope="col">PSU</th>
+                                                <th scope="col">CPU</th>
+                                                <th scope="col">Price (RM)</th>
+                                                <th scope="col">Reason</th>
+                                                <th scope="col">Color</th>
+                                                <th scope="col">Performance</th>
+                                                <th scope="col">Action</th>
+                                            </thead>
+                                            <tbody>
+                                            {% for row in package %}
+                                            
+                                            <tr>
+                                                <td>{{row.id}}</td>
+                                                <td>{{row.1}}</td>
+                                                <td>{{row.2}}</td>
+                                                <td>{{row.3}}</td>
+                                                <td>{{row.4}}</td>
+                                                <td>{{row.5}}</td>
+                                                <td>{{row.6}}</td>
+                                                <td>{{row.7}}</td>
+                                                <td>{{row.8}}</td>
+                                                <td>{{row.9}}</td>
+                                                <td>{{row.10}}</td>
+                                                <td>{{row.11}}</td>
+                                                <td><a class="btn btn-success" href="/updatepackage/{{row.id}}">Update</a> <a class="btn btn-danger"
+                                                    href="/deletepackage/{{row.id}}" onclick="myFunction()" style="
+													width: 82px;
+												">Delete</a> </td>
+                                                
+                                            </tr>
+                                            {% endfor %}
+                                        </table>  
+                                        <script>
+                                            function myFunction() {
+                                              let text = "Press a button!\nEither OK or Cancel.";
+                                              if (confirm(text) == true) {
+                                                text = "You pressed OK!";
+                                              } else {
+                                                text = "You canceled!";
+                                              }
+                                              document.getElementById("demo").innerHTML = text;
+                                            }
+                                            </script>
+                                            
+                                        </section>
+                               
+				<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://www.facebook.com/palamtech/" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="https://www.instagram.com/palamtech/?hl=en" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>Copyright © 2020 Palam Tech</li>
+				
+				</ul>
+			</div>
+		</footer>
+
+			</div>
+
+		<!-- Scripts -->
+        <script src="{{ url_for('static' , filename='js/jquery.min.js') }}"></script>
+        <script src="{{ url_for('static' , filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ url_for('static' , filename='js/jquery.scrolly.min.js') }}"></script>
+        <script src="{{ url_for('static' , filename='js/jquery.scrollex.min.js') }}"></script>
+        <script src="{{ url_for('static' , filename='js/browser.min.js') }}"></script>
+        <script src="{{ url_for('static' , filename='js/breakpoints.min.js') }}"></script>
+        <script src="{{ url_for('static' , filename='js/util.js') }}"></script>
+        <script src="{{ url_for('static' , filename='js/main.js') }}"></script>
+
+	</body>
+</html>

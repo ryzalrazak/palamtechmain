@@ -1,0 +1,162 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Recommending for you</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="{{ url_for('static' , filename='bootstrap/css/bootstrap.min.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static' , filename='css/main.css') }}" />
+	<link rel="stylesheet" href="{{ url_for('static' , filename='css/radio.css') }}" />
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+	<noscript>
+		<link rel="stylesheet" href="" {{ url_for('static' , filename='css/noscript.css' ) }}"" />
+	</noscript>
+</head>
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header" class="alt">
+			<a href="home" class="logo"><strong>Palam Tech</strong> <span>PC Builder</span></a>
+			<nav>
+				<a href="#menu">Menu</a>
+			</nav>
+		</header>
+
+		<!-- Menu -->
+		<nav id="menu">
+			<ul class="links">
+
+				<li> <a href="logout">Logout </a> </li>
+				<li class="active"> <a href="home">Home </a> </li>
+
+				<li> <a href="about">About Us</a> </li>
+
+				<li><a href="contact">Contact Us</a></li>
+
+				<li class="dropdown">
+					<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+						aria-haspopup="true" aria-expanded="false">PC Builder</a>
+
+					<ul class="dropdown-menu">
+						<li><a href="question">Recommend For You</a></li>
+					</ul>
+
+				</li>
+				<li><a href="writefeedback">Give Feedback</a></li>
+				<li><a href="myfeedback">My Feedbacks</a></li>
+			</ul>
+		</nav>
+
+
+
+		<!-- Main -->
+		<div id="main" class="alt">
+
+			<section id="contact">
+				<div class="inner">
+					<section>
+						<header class="major">
+							<h2>Question For Recommending {{current_user.custName}}</h2>
+						</header>
+						
+						<form  action="/question" method='POST'>
+							<input hidden type="text" name="id" value="{{current_user.id}}"/>
+							<div class="fields">
+								<div class="field half">
+									<label for="price">What are the expected price of the PC?</label>
+									<select name="price">
+									<option value="Don't mind"> Don't mind</option>
+									<option value="Less than 3000"> Less than RM3000</option>
+									<option  value="3000-5000"> RM3000 to RM5000</option>
+									<option  value="above 5000"> Above RM5000</option>
+									</select>
+								</div>
+								<div class="field half">
+									<label for="brand">Do you have brand preference for your CPU? If yes, pick
+										one.</label>
+										<select name="brand">
+									<option value="Don't mind"> Don't mind</option>
+									<option value="AMD"> AMD</option>
+									<option  value="INTEL"> INTEL </option>
+								</select>
+								</div>
+
+
+								<div class="field half reason">
+									<label for="reason">What are the reason you want to build a PC?</label>
+									<input type="checkbox" name="reason" class="reason" value="Gaming" /> Gaming <br>
+									<input type="checkbox" name="reason"  class="reason" value="Streaming" /> Streaming<br>
+									<input type="checkbox" name="reason"  class="reason" value="Editing" /> Editing <br>
+									<input type="checkbox" name="reason"  class="reason" value="Office Use" /> Office Use
+								</div>
+
+
+								
+
+
+								<div class="field half">
+									<label for="color">Do you have any color preference for PC's casing? Pick the
+										color</label>
+									<select name="color">
+									<option value="Don't mind"> Don't mind</option>
+									<option value="Black"> Black</option>
+									<option  value="White"> White </option>
+								</select>
+
+								</div>
+								<div class="field half performance">
+									<label for="performance">What are you expected from the PC's performance?</label>
+									<input type="checkbox" name="performance" value="Large memory"/> Large in memory storage <br>
+									<input type="checkbox" name="performance" value="Fast render"/> Fast rendering performance<br>
+									<input type="checkbox" name="performance" value="Smooth gaming"/> Smooth gaming experience <br>
+
+								</div>
+
+								<div class="field half">
+									<ul class="actions">
+										<li><input type="submit" value="Recommend Now" class="primary" onclick="valthis()"  /></li>
+										
+									</ul>
+								</div>
+								
+							</div>
+						</form>
+					</section>
+
+
+				</div>
+				<!-- Footer -->
+		<footer id="footer">
+			<div class="inner">
+				<ul class="icons">
+					<li><a href="https://www.facebook.com/palamtech/" class="icon alt fa-facebook"><span class="label">Facebook</span></a></li>
+					<li><a href="https://www.instagram.com/palamtech/?hl=en" class="icon alt fa-instagram"><span class="label">Instagram</span></a></li>
+				</ul>
+				<ul class="copyright">
+					<li>Copyright © 2020 Palam Tech</li>
+				
+				</ul>
+			</div>
+		</footer>
+		</div>
+		<!-- Scripts -->
+		<script src="{{ url_for('static' , filename='js/jquery.min.js') }}"></script>
+		<script src="{{ url_for('static' , filename='bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+		<script src="{{ url_for('static' , filename='js/jquery.scrolly.min.js') }}"></script>
+		<script src="{{ url_for('static' , filename='js/jquery.scrollex.min.js') }}"></script>
+		<script src="{{ url_for('static' , filename='js/browser.min.js') }}"></script>
+		<script src="{{ url_for('static' , filename='js/breakpoints.min.js') }}"></script>
+		<script src="{{ url_for('static' , filename='js/util.js') }}"></script>
+		<script src="{{ url_for('static' , filename='js/main.js') }}"></script>
+		<script>
+			</script>
+		
+
+</body>
+
+</html>
